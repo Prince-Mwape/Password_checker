@@ -3,4 +3,7 @@ This is a python program that checks the strength of an entered password. It ach
 
 To run this program, simply download and then import it into the IDE of your choosing and run in the terminal
 For version 1.0 it will run like this till I figure out how to give it a GUI.
+
+Version 1.01 adds suggestions to improve the strength of users passwords.
+
 Thank you so much for downloading
