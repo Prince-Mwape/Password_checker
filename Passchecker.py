@@ -48,6 +48,8 @@ def improvementSuggestions():
         
         elif not re.search(r"[!@#$%^&*(),.?\":{}|<>]", password):
             return ", please include special characters to your password."
+        else:
+            return " "
 
 
 while True:
