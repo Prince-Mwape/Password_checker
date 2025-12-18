@@ -36,24 +36,26 @@ def check_password_strength(password):
     else:
         return "Weak"
 
-def improvementSuggestions():
-        if not re.search(r"[A-Z]", password):
-            return ", please include uppercase letters to your password."
-        
-        elif not re.search(r"[a-z]", password):
-            return ", please include lowercase letters to your password."
-        
-        elif not re.search(r"[0-9]", password):
-            return ", please include numbers to your password."
-        
-        elif not re.search(r"[!@#$%^&*(),.?\":{}|<>]", password):
-            return ", please include special characters to your password."
-        else:
-            return " "
+#Tips for user to improve password
+def improvementSuggestions(password):
+    missing = []
+
+    if not re.search(r"[A-Z]", password):
+        missing.append("uppercase letters")
+    if not re.search(r"[a-z]", password):
+        missing.append("lowercase letters")
+    if not re.search(r"[0-9]", password):
+        missing.append("numbers")
+    if not re.search(r"[!@#$%^&*(),.?\":{}|<>]", password):
+        missing.append("special characters")
+
+    if missing:
+        return ", please include " + ", ".join(missing) + " in your password."
+    return ""
 
 
 while True:
     password = input("Please enter a password to verify its strength: ")
     strength = check_password_strength(password)
-    suggestion = improvementSuggestions()
-    print("Your password is:", strength,suggestion)
+    suggestion = improvementSuggestions(password)
+    print("Your password is:", strength + suggestion)
